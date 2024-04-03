@@ -2,7 +2,7 @@ import './CreateToDoButton.css'
 
 function CreateToDoButton(){
     return(
-      <button className='CreateToDoButton'>X</button>
+      <button className='CreateToDoButton' onClick={()=>{ console.log('Hola')}}>+</button>
     )
   }
 
