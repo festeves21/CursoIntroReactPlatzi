@@ -4,15 +4,15 @@ import {ReactComponent as DeleteSVG} from './delete.svg'
  
 
 const iconTypes = { 
-                    "check" : <CheckSVG/>,
-                    "delete" :<DeleteSVG/>
- }
+                    "check"  : (color) =>  <CheckSVG  className="Icon-svg" fill={color} />,
+                    "delete" : (color) => <DeleteSVG className="Icon-svg" fill={color}  />
+ };
 
-function ToDoIcon({type}){
-    console.log(type);
+function ToDoIcon({type,color,onClick}){
+    console.log(color);
     return (
-        <span className={`Icon Icon-svg Icon-${type}`}>
-            {iconTypes[type]}
+        <span className={`Icon-container Icon-container-${type}`} onClick={onClick}> 
+            {iconTypes[type](color)}
         </span>
     )
 }

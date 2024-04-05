@@ -6,7 +6,7 @@ function DeleteIcon({onDelete}){
                 type='delete' 
                 color='gray' 
                 onClick={onDelete}
-    />)
+    />);
 
 }
 
