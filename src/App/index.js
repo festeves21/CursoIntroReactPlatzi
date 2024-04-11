@@ -1,10 +1,10 @@
 import logo from './platzi.webp';
-import { ToDoCounter } from './ToDoCounter';
-import { ToDoSearch } from './ToDoSearch';
-import { ToDoList } from './ToDoList';
-import { ToDoItem } from './ToDoItem';
-import { CreateToDoButton } from './CreateToDoButton';
-
+import { ToDoCounter } from '../ToDoCounter';
+import { ToDoSearch } from '../ToDoSearch';
+import { ToDoList } from '../ToDoList';
+import { ToDoItem } from '../ToDoItem';
+import { CreateToDoButton } from '../CreateToDoButton';
+import { useLocalStorage } from './useLocalStorage';
 import React from 'react';
 
 /*const defaultToDos = [
@@ -19,26 +19,6 @@ localStorage.setItem('ToDos_V1', JSON.stringify(defaultToDos));*/
 
 //localStorage.setItem('ToDos_V1',defaultToDos);
 //localStorage.removeItem('ToDos_V1');
-
-function useLocalStorage( iteName, initialValue ){
-
-  const localStorageItem = localStorage.getItem(iteName);
-  let parsedItem;
-  if(!localStorageItem){
-    localStorage.setItem(iteName,JSON.stringify([]));
-    parsedItem=[]
-  }else{
-    parsedItem= JSON.parse(localStorageItem);
-  }
-  const[item, setItem] = React.useState(parsedItem);
-
-  const saveItem = (newItem)=>{
-    localStorage.setItem(iteName,JSON.stringify(newItem))
-    setItem(newItem);
-  }
-
-  return [item,saveItem]
-}
 
 function App() {
 
@@ -55,14 +35,14 @@ function App() {
 
   const completeToDo = (text) => { 
     const newToDos = [...toDos];
-    const todoIndex= newToDos.findIndex((todo)=> todo.texto == text);
+    const todoIndex= newToDos.findIndex((todo)=> todo.texto === text);
     newToDos[todoIndex].completed = true;
     saveToDoS(newToDos);
   }
   
   const deleteToDo = (text) => { 
     const newToDos = [...toDos];
-    const todoIndex= newToDos.findIndex((todo)=> todo.texto == text);
+    const todoIndex= newToDos.findIndex((todo)=> todo.texto === text);
     newToDos.splice(todoIndex,1) ;
     saveToDoS(newToDos);
   }

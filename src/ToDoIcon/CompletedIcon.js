@@ -1,5 +1,5 @@
 import React from "react";
-import { ToDoIcon } from "./ToDoIcon";
+import { ToDoIcon } from ".";
 
 function CompletedIcon( {completed , onCompleted} ){
     console.log('Completed pruebas: ' + completed); 
