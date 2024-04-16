@@ -3,10 +3,11 @@ import { AppUI } from './AppUi';
 import { ToDoProvider } from '../ToDoContext';
 
 function App() {
-  return (
+  return (<div>
     <ToDoProvider>
       <AppUI />
     </ToDoProvider>
+    </div>
   );
 }
 

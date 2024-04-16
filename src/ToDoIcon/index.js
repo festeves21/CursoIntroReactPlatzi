@@ -10,7 +10,7 @@ const iconTypes = {
  };
 
 function ToDoIcon({type,color,onClick}){
-    console.log(color);
+    //console.log(color);
     return (
         <span className={`Icon-container Icon-container-${type}`} onClick={onClick}> 
             {iconTypes[type](color)}

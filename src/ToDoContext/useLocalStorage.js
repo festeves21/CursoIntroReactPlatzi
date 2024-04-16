@@ -14,7 +14,7 @@ function useLocalStorage( iteName, initialValue ){
                 let parsedItem;
                 if(!localStorageItem){
                     localStorage.setItem(iteName,JSON.stringify([]));
-                    parsedItem=[]
+                    parsedItem=initialValue
                   }else{
                     parsedItem= JSON.parse(localStorageItem);
                     setItem(parsedItem)
@@ -27,7 +27,7 @@ function useLocalStorage( iteName, initialValue ){
 
             },1000);
 
-        },[]);
+        });
         
           const saveItem = (newItem)=>{
             localStorage.setItem(iteName,JSON.stringify(newItem))
@@ -40,17 +40,3 @@ function useLocalStorage( iteName, initialValue ){
 
   
   export  { useLocalStorage}
-
-
-  /*const defaultToDos = [
-    { texto: 'Cortar Cebolla', completed: false},
-    { texto: 'Terminar Curso de Platzi React Intro', completed: true},
-    { texto: 'Terminar Curso de Platzi React Avanzado', completed: false},
-    { texto: 'Terminar Curso de Platzi Java', completed: true},
-    { texto: 'Terminar Curso de Platzi C#', completed: false}
-]
-
-localStorage.setItem('ToDos_V1', JSON.stringify(defaultToDos));*/
-
-//localStorage.setItem('ToDos_V1',defaultToDos);
-//localStorage.removeItem('ToDos_V1');

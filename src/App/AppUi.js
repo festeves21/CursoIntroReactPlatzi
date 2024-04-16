@@ -8,26 +8,32 @@ import { ToDosError } from '../ToDosError';
 import { EmptyToDos } from '../EmptyToDos';
 import { ToDoContext } from '../ToDoContext';
 import React from 'react';
+import { Modal } from '../Modal';
+import { ToDoForm } from '../ToDoForm';
 
 
 function AppUI(){
 
 
-  const { loading,
+  const { 
+    loading,
     error,
     searchedToDos
      ,completeToDo
-     ,deleteToDo} = React.useContext(ToDoContext)
+     ,deleteToDo,
+     openModal,
+     setOpenModal
+    } = React.useContext(ToDoContext)
     return(<>
       <ToDoCounter /* completed={completeToDos} total={totalToDos} */  />
       <ToDoSearch /* searchValue={searchValue}  setSearchValue={setSearchValue}  */ />
 
               <ToDoList>
-              { loading && <p>
+              { loading && <>
                                 <ToDosLoading/>
                                 <ToDosLoading/>
-                                <ToDosLoading/>
-                              </p>}
+                                <ToDosLoading/> 
+                              </>}
 
               { error && <p><ToDosError/></p>}
 
@@ -47,8 +53,14 @@ function AppUI(){
 
 
 
-        <CreateToDoButton/>
-
+        <CreateToDoButton setOpenModal={setOpenModal}/>
+        {openModal && (
+             <Modal>
+              <ToDoForm/>
+           </Modal>
+          )
+        }
+       
       </>);
 
 }

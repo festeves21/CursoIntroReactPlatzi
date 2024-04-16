@@ -4,7 +4,7 @@ function ToDoList(props){
     return(
     <ul className="ToDoList">
         {props.children}
-    </ul>)
+    </ul>);
   }
   
   export {ToDoList};

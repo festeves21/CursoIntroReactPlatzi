@@ -8,7 +8,7 @@ function ToDoSearch(){
         const {searchValue,setSearchValue}  = React.useContext(ToDoContext);
     return(
             <input className="ToDoSearch" placeholder="Insertar To-Do" 
-            v   alue={searchValue}
+               value={searchValue}
                     onChange={(event)=>{
                       
                       setSearchValue(event.target.value);
